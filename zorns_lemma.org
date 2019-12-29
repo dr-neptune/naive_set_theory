@@ -87,3 +87,13 @@ This doesn't work -- what if we have an infinite sequence of non-maximal element
 
 ** Zorn's Lemma Equivalent to Axiom of Choice 
 
+Exercise: Zorn's lemma is equivalent to the axiom of choice.
+
+
+#+DOWNLOADED: /tmp/screenshot.png @ 2019-12-28 17:34:59
+[[file:Zorn's Lemma/screenshot_2019-12-28_17-34-59.png]]
+
+
+#+DOWNLOADED: /tmp/screenshot.png @ 2019-12-28 17:35:23
+[[file:Zorn's Lemma/screenshot_2019-12-28_17-35-23.png]]
+
