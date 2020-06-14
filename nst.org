@@ -1,0 +1,67 @@
+* Notes 
+
+This is just going to contain notes from chapter 17 onwards
+
+** 17 | Well Ordering  
+
+A partially ordered set is called well ordered (and its ordering calls a well ordering) if every non-empty subset of it has a smallest element. One consequence of this is that every well-ordered set is totally ordered. 
+
+One of the nicest facts about well ordered sets is that we can prove things about their elements by a process similar to induction. 
+
+Suppose that $S$ is a subset of a well ordered set $X$, and suppose that whenever an element $x$ of $X$ is such that the entire initial segment $s(x)$ is included in $S$, then $x$ itself belongs to $S$; the principle of *transfinite induction* asserts that under these circumstances we must have $S = X$. 
+
+Equivalently, if the presence in a set of all the strict predecessors of an element always implies the presence of the element itself, then the set must contain everything. 
+
+The statement of ordinary induction differs from that of transfinite induction by two respects:
+
+- instead of passing each element from its precessor, pass to each element from the set of all its predecessors
+- in transfinite induction there is no assumption about a starting element (such as zero)
+ 
+The second point is more linguistic than conceptual. If $x_0$ is the smallest element of $X$, then $s(x_0)$ is empty and consequently $s(x_0) \subset S$; the hypothesis of the principle of transfinite induction requires therefore than $x_0$ belong to $S$. 
+
+Proof of Transfinite Induction: 
+
+Suppose that $S$ is a subset of a well ordered set $X$, and suppose that whenever an element $x$ of $X$ is such that the entire initial segment $s(x)$ is included in $S$, then $x$ itself belongs to $S$. Now consider the set $X - S$. Since X is well ordered, there must be a minimum value in $X - S$, $x$. However, by our assumption $x$ must belong to $S$ since the entire initial segment is included in $S$. This is a contradiction, as $x$ cannot belong to both $S$ and $X - S$. Thus $X - S$ is empty, and $X = S$.
+
+We say that a well ordered set $A$ is a continuation of a well ordered set $B$ if, in the first place, $B$ is a subset of $A$, if, in fact, $B$ is an initial segment of $A$ and if, finally, the ordering of the elements in $B$ is the same as their ordering in $A$. Thus if $X$ is a well ordered set and if $a$ and $b$ are elements of $X$ with $b < a$, then $s(a)$ is a continuation of $s(b)$, and $X$ is a continuation of both $s(a)$ and $s(b)$. 
+
+*** Well Ordering Theorem
+
+Every set can be well ordered.
+
+A better statement is this: For each set $X$, there is a well ordering with domain $X$. 
+
+Proof: 
+
+We apply Zorn's Lemma. Given the set $X$, consider the collection $W$ of all well ordered subsets of $X$.
+
+The collection $W$ is not empty, because $\varnothing \in W$. If $X \neq \varnothing$, less annoying elements of $W$ can be exhibited. If $C$ is a chain in $W$, then the union $U$ of the sets in $C$ has a unique well ordering that makes $U$ larger than (or equal to) each set in $C$. 
+
+This means that the principal hypothesis of Zorn's lemma has been verified; the conclusion is that there exists a maximal well ordered set, say $M$ in $W$. The set $M$ must be equal to the entire set $X$. 
+
+Reason: If $x$ is an element of $X$ not in $M$, then $M$ can be enlarged by putting $x$ after all the elements of $M$. 
+** 18 | Transfinite Recursion 
+
+The process of definition by induction has a transfinite analogue. The ordinary recursion theorem constructs a function on $N$; the raw material is a way of getting the value of the function at each non-zero element $n$ of $N$ from its value at the element preceding $n$. The transfinite analogue constructs a function on any well ordered set $W$; the raw material is a way of getting the value of the function at each element $a$ of $W$ from its values at the predecessors of $a$. 
+
+If $a$ is an element of a well ordered set $W$, and if $X$ is an arbitrary set, then by a sequence of type $a$ in $X$ we shall mean a function from the initial segment of $a$ in $W$ into $X$.
+
+If $U$ is a function from $W$ to $X$, then the restriction of $U$ to the initial segment $s(a)$ of $a$ is an example of a sequence of type $a$ for each $a$ in $W$. In what follows, we shall denote that sequence by $U^a$. 
+
+A sequence function of type $W$ in $X$ is a function whose domain consists of all sequences of type $a$ in $X$, for all elements $a$ in $W$, and whose range is included in $X$. Roughly speaking, a sequence function tells us how to lengthen a sequence; given a sequence that stretches up to (but not including) some element of $W$ we can use a sequence function to tack on one more term. 
+
+*** Transfinite Recursion Theorem 
+
+If $W$ is a well ordered set, and if $f$ is a sequence function of type $W$ in a set $X$, then there exists a unique function $U$ from $W$ into $X$ such that $U(a) = f(U^a)$ for each $a$ in $W$. 
+
+# Proof 
+
+# To prove existence, recall that a function from $W$ to $X$ is a certain kind of subset of $W \times X$; we shall construct $U$ explicitly as a set of ordered pairs. 
+
+# Call a subset $A$ of $W \times X$ f-closed if it has the following property: whenever $a \in W$ and $t$ is a sequence of type $a$ included in $A$, that is, $(c, t(c)) \in A)$ for all $c$ in the initial segment $s(a)$, then $(a, f(t)) \in A$. Since $W \times X$ itself is f-closed, such sets do exist; let $U$ be the intersection of them all. Since $U$ itself is f-closed, it remains only to prove that $U$ is a function. 
+
+# The proof is inductive. Let $S$ be the set of all those elements $c$ of $W$ for which it is indeed true that $(c, x) \in U$ for at most one x. We shall prove that is $s(a) \subset S$, then $a \in S$. 
+
+# To say that $s(a) \subset S$ means that if $c < a$ in $W$, then there exists a unique element $x \in X$ such that $(c, x) \in U$. 
+
+An application of the transfinite recursion theorem is called definition by transfinite induction. 
