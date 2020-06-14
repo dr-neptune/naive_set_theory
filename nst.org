@@ -82,3 +82,137 @@ The result of the previous paragraph has 3 especially useful consequences:
 
 ** 19 | Ordinal Numbers  
 
+What happens if we start from $n$, form its successor, $n^+$, and then form the successor of that ad infinitum? Is there something beyond $n, n^+, (n^+)^+$, etc?
+
+The question calls for a set, $T$, containing $n$, such that each element of $T$, other than $n$, can be obtained from $n$ by the repeated formation of successors. Some terminology:
+
+- a function $f$ whose domain is the set of strict predecessors of some natural number $n$ is an $\omega$ successor function if $f(0) = \omega$ (provided that $n \neq 0$ so that $0 < n$), and $f(m^+) = (f(m))^+$ whenever $m^+ < n$. 
+
+Let $S(n, x)$ be the sentence that says "$n$ is a natural number and $x$ belongs to the range of the $\omega$ successor function with domain $n$." A set $T$ s.t. $x \in T$ iff $S(n, x)$ is true for some $n$ is what we are looking for. 
+
+We know that for each natural number $n$ we are permitted to form the set $\{x: S(n, x)\}$. In other words, for each natural number $n$ there exists a set $F(n)$ such that $x \in F(n)$ iff $S(n, x)$ is true. It seems that none of our methods of set construction up to this point is sufficiently strong to prove the existence of a set $F$ of ordered pairs such that $(n, x) \in F$ iff $x \in F(n)$. To achieve this we need a new set-theoretic principle that, roughly speaking, says that anything intelligent that one can do to the elements of a set yields a set. 
+
+*** Axiom of Substitution 
+
+If $S(a, b)$ is a sentence such that for each $a$ in a set $A$ the set $\{b:S(a, b)\}$ can be formed, then there exists a function $F$ with domain $A$ such that $F(a) = \{b:S(a, b)\}$ for each $a \in A$. 
+
+The chief application of the axiom of substitution is in extending the process of counting far beyond the natural numbers. 
+
+An *ordinal number* is defined as a well ordered set $\alpha$ such that $s(\xi) = \xi$ for all $\xi \in \alpha$; here $s(\xi)$ is the initial segment $\{\eta \in \alpha : \eta < \xi \}$. 
+
+An order (partial or total) in a set $X$ is uniquely determined by its initial segments. If, in other words, $R$ and $S$ are orders in $X$, and if, for each $x \in X$, the set of all $R$-predecessors of $s$ is the same of as the set of all $S$-predecessors of $x$, then $R$ and $S$ are the same. 
+
+** 20 | Sets of Ordinal Numbers 
+
+An ordinal number is by definition a special kind of well ordered set. 
+
+The most elementary fast is that each element of an ordinal number $\alpha$ is at the same time a subset of $\alpha$. In other words, every ordinal number is a transitive set. 
+
+If $\xi$ is an element of an ordinal number $\alpha$, then $\xi$ is a subset of $\alpha$ and consequently $\xi$ is a well ordered set. Furthermore, every initial segment of an ordinal number is itself an ordinal number. 
+
+If two ordinal numbers are similar, then they are equal. 
+
+If $\alpha$ and $\beta$ are ordinal numbers, then they are well ordered sets, and consequently, either they are similar or else one of them is similar to an initial segment of the other. 
+
+If $\alpha$ and $\beta$ are distinct ordinal numbers, then $\beta \in \alpha$, $\beta \subset \alpha$, $\alpha$ is a continuation of $\beta$ are all equivalent to one another. If they hold, we may write $\beta < \alpha$. We know that any two ordinal numbers are comparable. 
+
+Every set of ordinal numbers is even more than totally ordered; they are well ordered. 
+
+Some ordinal numbers are finite (these are the natural numbers). The others are called transfinite; the set of all natural numbers $\mathcal{N}$ is the smallest transfinite ordinal number. Each finite ordinal number, other than 0, has an immediate predecessor. If a transfinite ordinal number has an immediate predecessor $\beta$, then $\alpha = \beta^+$. Not every transfinite ordinal number has an immediate predecessor. Those that do not are called limit numbers. 
+
+Next we show that the concept of an ordinal number is not so special, and that each well ordered set resembles some ordinal number in all essential respects. "Resemblence" here is meant in the technical sense of similarity. An informal statement of the result is that each well ordered set can be counted. 
+
+*** Counting Theorem 
+
+Each well ordered set is similar to a unique ordinal number. 
+
+Proof
+
+Since for ordinal numbers, similarity is the same as equality, uniqueness is obvious. Suppose now that X is a well ordered set and suppose that an element $a$ of $X$ is such that the initial segment determined by each predecessor of $a$ is similar to some (necessarily unique) ordinal number. If $S(x, a)$ is the sentence that says "$\alpha$ is an ordinal number and $s(x) \tilde{=} \alpha$" then, for each $x \in s(a)$, the set $\{\alpha : S(x, a)\}$ can be formed. In fact, that set is a singleton. The axiom of substitution implies the existence of a set consisting exactly of the ordinal numbers similar to the initial segments determined by the predecessors of $a$. It follows, whether $a$ is the immediate successor of one of its predecessors or the supremum of them all, that $s(a)$ is similar to an ordinal number. This argument prepares the way for an application of the principle of transfinite induction; the conclusion being that each initial segment in $X$ is similar to some ordinal number. This, in turn, justifies another application of the axiom of substitution; the final conclusion being that $X$ is similar to some ordinal number. 
+ 
+** 21 | Ordinal Arithmetic 
+
+Suppose that $\{E_i\}$ is a disjoint family of well ordered sets indexed by a well ordered set $I$. The ordinal sum of the family is the union $\cup_i E_i$ ordered as follows. If $a$ and $b$ are elements of the union, with $a \in E_i$ and $b \in E_j$, then $a < b$ means that either $i < j$ or else $i = j$ and $a$ precedes $b$ in the given order of $E_i$.
+
+For each well ordered set $X$, let ord $X$ be the uniquie ordinal number similar to $X$ (if $X$ is finite, then ord $X$ is the same as the natural number #$X$). If $\alpha$ and $\beta$ are ordinal numbers, let $A$ and $B$ be disjoint well ordered sets with ord $A = \alpha$ and ord $B = \beta$, and let $C$ be the ordinal sum of $A$ and $B$. The sum $\alpha + \beta$ is the ordinal number $C$ s.t. $\mathrm{ord} A + \mathrm{ord} B = \mathrm{ord} C$. 
+
+Some of the properties of ordinal numbers are good and others are bad. 
+
+Good: 
+
+- $\alpha + 0 = \alpha$
+- $0 + \alpha = \alpha$
+- $\alpha + 1 = \alpha^+$
+- $\alpha + (\beta + \gamma) = (\alpha + \beta) + \gamma$
+
+The commutative law fails: 
+
+- $1 + \gamma = \gamma$, but $\gamma + 1 = \gamma^+$ 
+
+The ordinal product of two well ordered sets $A$ and $B$ is the cartesian product $A \times B$ with the reverse lexicographic order. In other words, if $(a, b)$ and $(c, d)$ are in $A \times B$, then $(a, b) < (c, d)$ means that either $b < d$ or else $b = d$ and $a < c$. 
+
+The product of $\alpha\beta$ is the ordinal number $C$, s.t. $(ordA)(ordB) = ordC$.
+
+For multiplication: 
+
+- $\alpha 0 = 0$
+- $0 \alpha = 0$
+- $\alpha 1 = \alpha$
+- $1 \alpha = \alpha$
+- $\alpha(\beta\gamma) = (\alpha\beta)\gamma$ (associative)
+- $\alpha(\beta + \gamma) = \alpha\beta + \alpha\gamma$ (left distributive)
+
+The commutative law for multiplication fails. The right distributive law also fails. 
+- $2\gamma = \gamma$, but $\gamma 2 \neq \gamma$
+- $(\alpha + \beta)\gamma \neq \alpha\gamma + \alpha\beta$
+
+Similarly for exponentiation 
+
+- $0^\alpha = 0 ;(\alpha \geq 1)$
+- $1^\gamma = 1$
+- $\alpha^{\beta + \gamma} = \alpha^\beta\alpha^\gamma$
+- $\alpha^{\beta\gamma} = (\alpha^\beta)^\gamma$
+
+but not all laws hold
+
+- $(\alpha\beta)^\gamma \neq \alpha^\gamma \beta^\gamma$
+
+
+** 22 | The Schroder-Bernstein Theorem 
+
+We turn to the problem of comparing the sizes of sets. The problem is to compare the sizes of sets when their elements do not appear to have anything to do with each other. 
+
+For well ordered sets, we have what seems to be a reasonable measure of size, namely, their ordinal number. However, we can not just well order each of our sets and compare the ordinal number of each of them. The trouble is that one set can be well ordered in many ways. 
+
+If $X$ and $Y$ are well ordered sets, then a necessary and sufficient condition that ord $X$ < ord $Y$ is that $X$ be similar to an initial segment of $Y$. It follows that we could compare the ordinal sizes of two well ordered sets even without knowing anything about ordinal numbers; all that we need is the concept of similarity. Similarity is defined for ordered sets. For unordered sets, we would use equivalence ($X \sim Y$ iff there exists a 1-to-1 correspondence between them). If we replace similarity by equivalence, then something like the last paragraph becomes usable. 
+
+If $X$ and $Y$ are sets such that $X$ is equivalent to a subset of $Y$, we shall write $X \tilde{\prec} Y$ 
+
+What can we say about two sets if all we know is that each of them is equivalent to a subset of the other? 
+
+*** Schroder Bernstein Theorem  
+
+If $X \tilde{\prec} Y$ and $Y \tilde{\prec} X$, then $X \sim Y$ 
+
+** 23 | Countable Sets 
+
+If $Y$ dominates $X$, but $X$ does not dominate $Y$, so that $X$ is not equivalent to $Y$, we shall write $X \prec Y$ and we shall say that $Y$ strictly dominates $X$. 
+
+Domination and strict domination can be used to express some of the facts about finite and infinite sets in a neat form. 
+
+A set $X$ is called countable (or denumerable) in case $X \prec N$ and countably infinite in case $X \sim N$. Our main purpose in the sequel is to show that many set-theoretic constructions when performed on countable sets lead again to countable sets. 
+
+If $f$ is a function from $N$ onto a set $X$, then $X$ is countable. It follows that a set $X$ is countable iff there exists a function from any countable set onto $X$. Similarly, if $Y$ is any particular countably infinite set, then a necessary and sufficient condition that a non-empty set $X$ be countable is that there exist a function from $Y$ onto $X$. 
+
+The union of a countably infinite family of countable sets is countable. A corollary is that the Cartesian product of two countable sets is also countable. 
+
+*** Cantor's Theorem 
+
+Every set is strictly dominated by its power set, $X \prec \mathcal{P}(X) \forall X$.
+
+This implies that $X \prec 2^X \forall X$. 
+
+ 
+** Cardinal Arithmetic
+
+
