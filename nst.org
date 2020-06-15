@@ -177,7 +177,6 @@ but not all laws hold
 
 - $(\alpha\beta)^\gamma \neq \alpha^\gamma \beta^\gamma$
 
-
 ** 22 | The Schroder-Bernstein Theorem 
 
 We turn to the problem of comparing the sizes of sets. The problem is to compare the sizes of sets when their elements do not appear to have anything to do with each other. 
@@ -212,7 +211,41 @@ Every set is strictly dominated by its power set, $X \prec \mathcal{P}(X) \foral
 
 This implies that $X \prec 2^X \forall X$. 
 
+** 24 | Cardinal Arithmetic
+
+Our result of our study of the comparative sizes of sets will be to define a new concept, called cardinal number, and to associate with each set $X$ a cardinal number denoted by card $X$. 
+
+Some properties of cardinal arithmetic:
  
-** Cardinal Arithmetic
+- card $X$ = card $Y$ iff $X \sim Y$
+- card $X <$ card $Y$ iff $X \prec Y$
+- if $a, b$ are cardinal numbers and if $A, B$ are disjoint sets with card $a = A$ and card $b = B$, then $a + b =$ card $(A \cup B)$.
+- if $C, D$ are disjoint sets with card $C = a$ and card $D = b$, then $A \sim C$ and $B \sim D$. It follows that $A \cup B \sim C \cup D$.
+- commutative $a + b = b + a$
+- associative $a + (b + c) = (a + b) + c$ 
 
+Multiplication and Exponentiation are similarly predictable. 
 
+These are not at all surprising on finite sets, and the result is familiar finite arithmetic. Things are different with at least one infinite term.
+
+- If $a, b$ are cardinal numbers s.t. $a$ is finite and $b$ is infinite, then $a + b = b$. 
+- If $a$ is an infinite cardinal number, then $a + a = a$ 
+- if $a, b$ are cardinal numbers, at least one of which is infinite, and if $c$ is equal to the larger one, then $a + b = c$
+- if $a$ is an infinite cardinal number, then $a*a = a$. 
+
+** 25 | Cardinal Numbers 
+
+In order to define a cardinal number here, we will try to define a cardinal number of a set $X$ as some particular carefully selected set equivalent to $X$. 
+
+Our first problem is to narrow the field. Since we know that every set is equivalent to some ordinal number, it is not unnatural to look for the typical sets, the representative sets, among ordinal numbers. A hopeful sign that this is a good approach is that for each set $X$, the ordinal numbers equivalent to $X$ constitute a set. Which set among the ordinal numbers equivalent to $X$ derserves to be singled out and called the cardinal number of $X$? There is only one natural answer. 
+
+Every set of ordinal numbers is well ordered; the least element of a well ordered set is the only one that seems to clamor for special attention. We are now prepared for a definition: 
+
+A *cardinal number* is an ordinal number $\alpha$ such that if $\beta$ if an ordinal number equivalent to $\alpha$, then $\alpha \leq \beta$. The ordinal numbers with this property have also been called initial numbers. If $X$ is a set, then card $X$, the cardinal number of $X$, is the least ordinal number equivalent to $X$. 
+
+It follows that card $X$ = card $Y$ iff $X \sim Y$. Similarly, the facts about the ordering of ordinal numbers are at the same time facts about the ordering of cardinal numbers. 
+
+One of the special symbols for cardinal numbers that is used very frequently is the first letter of the Hebrew alphabet $\aleph$. Thus, in particular, the smallest transfinite ordinal number, i.e. $N$, is a cardinal number, and as such it is always denoted by $\aleph_0$. In many applications of set theory, an important role is played by the smallest uncountable ordinal number, frequently denoted by $\Omega$. The most important property of $N$ is that it is an infinite well ordered set whose initial segments is finite; correspondingly, the most important property of $\Omega$ is that it is an uncountably infinite well ordered set each of whose initial segments is countable. In $\Omega$'s cardinal role it is always denoted by $\aleph_1$.
+
+How do we get from $\aleph_0$ to $\aleph_1$ by arithmetic operations? The simplest thing that we know to do that starts with $\aleph_0$ and ends up with something larger is to form $2^{\aleph_0}$. The continuum hypothesis asserts, as a guess, that $\aleph_1 = 2^{\aleph_0}$. The generalized continuum hypothesis is the conjecture that $\aleph_{\alpha + 1} = 2^{\aleph_\alpha}$ for each ordinal number $\alpha$.
+ 
